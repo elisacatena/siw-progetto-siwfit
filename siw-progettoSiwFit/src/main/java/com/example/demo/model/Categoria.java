@@ -2,8 +2,10 @@ package com.example.demo.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,7 +23,7 @@ public class Categoria {
 	private String nome;
 	private String descrizione;
 	
-	@OneToMany
+	@OneToMany//(cascade = {CascadeType.PERSIST,CascadeType.REMOVE},fetch = FetchType.EAGER)
 	@JoinColumn(name = "categoria_id")
 	private List<Corso> corsi;
 	
