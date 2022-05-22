@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	</head>
+<body>
+	<div>
+		<h4>Dettagli corso</h4>
+	</div>
+	<div>
+		<span th:text="${corso.nome}">nome corso</span>
+   	</div>
+	<div>
+		<span th:text="${corso.descrizione}">descrizione corso</span>
+   	</div>
+	<div><a th:href="@{/prenota}" th:text="prenota"></a></div>
+	<footer><a href="/">Home</a></footer>
+</body>
+</html>

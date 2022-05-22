@@ -1,12 +1,15 @@
 package com.example.demo.model;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -19,23 +22,26 @@ public class Corso {
 	@Column(nullable = false)
 	private String nome;
 	@Column(nullable = false)
-	private LocalDateTime data;
+	private String data;
 	private String difficolta;
 	private String durata;
 	private String descrizione;
 	private String sala;
 	private int numeroMaxPersone;
 	
-	@ManyToOne
+	@ManyToOne//(cascade = CascadeType.PERSIST)
 	private Trainer trainer;
 	
 	@ManyToOne
 	private Categoria categoria;
 	
+	//@ManyToMany
+	//private List<User> iscritti;
+	
 	
 	public Corso() {}
 
-	public Corso(String nome, LocalDateTime data, String difficolta, String durata, String descrizione, String sala,
+	public Corso(String nome, String data, String difficolta, String durata, String descrizione, String sala,
 			int numeroMaxPersone, Trainer trainer, Categoria categoria) {
 		this.nome = nome;
 		this.data = data;
@@ -45,7 +51,7 @@ public class Corso {
 		this.sala = sala;
 		this.numeroMaxPersone = numeroMaxPersone;
 		this.trainer = trainer;
-		this.categoria = categoria;
+		//this.categoria = categoria;
 	}
 	
 	public Long getId() {
@@ -60,10 +66,10 @@ public class Corso {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public LocalDateTime getData() {
+	public String getData() {
 		return data;
 	}
-	public void setData(LocalDateTime data) {
+	public void setData(String data) {
 		this.data = data;
 	}
 	public String getDifficolta() {
@@ -107,13 +113,21 @@ public class Corso {
 		this.trainer = trainer;
 	}
 
-	public Categoria getCategoria() {
-		return categoria;
-	}
+//	public Categoria getCategoria() {
+//		return categoria;
+//	}
+//
+//	public void setCategoria(Categoria categoria) {
+//		this.categoria = categoria;
+//	}
 
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
+//	public List<User> getIscritti() {
+//		return iscritti;
+//	}
+//
+//	public void setIscritti(List<User> iscritti) {
+//		this.iscritti = iscritti;
+//	}
 
 	@Override
 	public int hashCode() {

@@ -20,7 +20,7 @@ public class Trainer {
 	private String cognome;
 	private String descrizione;
 	
-	@OneToMany
+	@OneToMany()
 	@JoinColumn(name = "trainer_id")
 	private List<Corso> corsi;
 	
