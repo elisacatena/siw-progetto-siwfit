@@ -16,4 +16,8 @@ public class CorsoService {
 		return corsoRepository.findById(id).get();
 	}
 
+	public boolean alreadyExists(Corso corso) {
+		return this.corsoRepository.existsById(corso.getId());
+	}
+
 }
