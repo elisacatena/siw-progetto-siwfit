@@ -20,8 +20,10 @@ public class TrainerValidator implements Validator{
 	}
 
 	@Override
-	public void validate(Object target, Errors errors) {
-		
+	public void validate(Object trainer, Errors errors) {
+		if(this.trainerService.alreadyExists((Trainer)trainer)) {
+			errors.reject("trainer.duplicato");
+		}
 	}
 
 }
