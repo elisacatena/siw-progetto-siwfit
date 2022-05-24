@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8"/>
 	</head>
@@ -15,8 +15,8 @@
    	</div>
 	<div><ul>
 	<li th:each="corso : ${categoria.corsi}">
-		<a href="corso.html"
-			th:href="@{'/corso' + '/' + ${corso.id}}"
+		<a
+			th:href="@{'/user/corso' + '/' + ${corso.id}}"
 			th:text="${corso.nome}">corso1</a>
 	</li>
 	</ul></div>
