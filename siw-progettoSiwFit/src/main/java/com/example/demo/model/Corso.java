@@ -1,9 +1,8 @@
 package com.example.demo.model;
 
-import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -35,11 +34,13 @@ public class Corso {
 	@ManyToOne
 	private Categoria categoria;
 	
-	//@ManyToMany
-	//private List<User> iscritti;
+	@ManyToMany
+	private List<User> iscritti;
 	
 	
-	public Corso() {}
+	public Corso() {
+		this.iscritti = new ArrayList<User>();
+	}
 
 	public Corso(String nome, String data, String difficolta, String durata, String descrizione, String sala,
 			int numeroMaxPersone, Trainer trainer, Categoria categoria) {
@@ -113,21 +114,21 @@ public class Corso {
 		this.trainer = trainer;
 	}
 
-//	public Categoria getCategoria() {
-//		return categoria;
-//	}
-//
-//	public void setCategoria(Categoria categoria) {
-//		this.categoria = categoria;
-//	}
+	public Categoria getCategoria() {
+		return categoria;
+	}
 
-//	public List<User> getIscritti() {
-//		return iscritti;
-//	}
-//
-//	public void setIscritti(List<User> iscritti) {
-//		this.iscritti = iscritti;
-//	}
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
+	public List<User> getIscritti() {
+		return iscritti;
+	}
+
+	public void setIscritti(List<User> iscritti) {
+		this.iscritti = iscritti;
+	}
 
 	@Override
 	public int hashCode() {
