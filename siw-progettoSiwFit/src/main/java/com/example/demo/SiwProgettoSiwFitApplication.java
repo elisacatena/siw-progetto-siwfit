@@ -11,9 +11,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.example.demo.model.Categoria;
 import com.example.demo.model.Corso;
 import com.example.demo.model.Trainer;
+import com.example.demo.model.User;
 import com.example.demo.repository.CategoriaRepository;
 import com.example.demo.repository.CorsoRepository;
 import com.example.demo.repository.TrainerRepository;
+import com.example.demo.repository.UserRepository;
 
 
 @SpringBootApplication
@@ -26,15 +28,16 @@ public class SiwProgettoSiwFitApplication implements CommandLineRunner{
 	@Autowired
 	private CorsoRepository cor;
 	
+	@Autowired
+	private UserRepository ur;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(SiwProgettoSiwFitApplication.class, args);
-		
-		
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
+
 		Trainer t = new Trainer();
 		
 	 	Categoria c1 = new Categoria();
@@ -76,7 +79,15 @@ public class SiwProgettoSiwFitApplication implements CommandLineRunner{
 		c1.setCorsi(corsi);
 		c2.setCorsi(corsi2);
 		
+		User u1 = new User();
+		u1.setUsername("u1");
+		u1.setCorsiPrenotati(corsi2);
+		
+		co3.getIscritti().add(u1);
+		co4.getIscritti().add(u1);
+		
 		tr.save(t);
+		ur.save(u1);
 		cor.save(co1);
 		cor.save(co2);
 		cor.save(co3);

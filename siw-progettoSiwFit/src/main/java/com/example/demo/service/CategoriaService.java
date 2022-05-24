@@ -35,8 +35,6 @@ public class CategoriaService {
 	}
 	
 	public boolean alreadyExists(Categoria categoria) {
-
         return this.categoriaRepository.existsByNome(categoria.getNome());
-
     }
 }

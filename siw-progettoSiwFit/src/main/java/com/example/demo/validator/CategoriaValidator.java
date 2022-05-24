@@ -9,7 +9,7 @@ import com.example.demo.model.Categoria;
 import com.example.demo.service.CategoriaService;
 
 @Component
-public class CategoriaValidator implements Validator{
+public class CategoriaValidator implements Validator {
 
 	@Autowired
 	private CategoriaService categoriaService;
@@ -21,7 +21,9 @@ public class CategoriaValidator implements Validator{
 
 	@Override
 	public void validate(Object target, Errors errors) {
-		
+		if(this.categoriaService.alreadyExists((Categoria)target)) {
+			errors.reject("categoria.duplicato");
+		}
 	}
 
 }

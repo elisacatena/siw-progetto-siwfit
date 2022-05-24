@@ -5,26 +5,25 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import com.example.demo.model.Corso;
-import com.example.demo.service.CorsoService;
+import com.example.demo.model.User;
+import com.example.demo.service.UserService;
 
 @Component
-public class CorsoValidator implements Validator{
-
-	@Autowired
-	private CorsoService corsoService;
+public class UserValidator implements Validator {
 	
+	@Autowired
+	private UserService userService;
+
 	@Override
 	public boolean supports(Class<?> clazz) {
-		return Corso.class.equals(clazz);
+		return User.class.equals(clazz);
 	}
 
 	@Override
 	public void validate(Object target, Errors errors) {
-		if(this.corsoService.alreadyExists((Corso)target)) {
-			errors.reject("corso.duplicato");
+		if(this.userService.alreadyExists((User)target)) {
+			errors.reject("user.duplicato");
 		}
 	}
 
-	
 }

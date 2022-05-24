@@ -8,10 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
-
-//@Entity
+@Entity
+@Table(name="Utente")
 public class User {
 	
 	@Id
@@ -19,16 +20,19 @@ public class User {
 	private Long id;
 	
 	private String nome;
+	
 	private String cognome;
+	
 	@Column(nullable = false)
 	@NotBlank
 	private String username;
+	
 	private String password;
 	
 	@ManyToMany(mappedBy = "iscritti")
 	private List<Corso> corsiPrenotati;
 	
-	public User() {}
+	public User() {} 
 	
 	public User(String nome, String cognome, String username, String password) {
 		this.nome = nome;

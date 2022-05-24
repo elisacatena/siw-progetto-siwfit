@@ -5,7 +5,7 @@
 	<ul>
 	<li th:each="categoria : ${categorie}">
 		<a href="categoria.html" class ="link"
-			th:href="@{'/categoria' + '/' + ${categoria.id}}"
+			th:href="@{'/user/categoria' + '/' + ${categoria.id}}"
 			th:text="${categoria.nome}">categoria1</a>
 	</li>
 	</ul>
