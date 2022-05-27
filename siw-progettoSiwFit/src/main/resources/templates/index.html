@@ -1,17 +1,39 @@
 <!--PROGETTO SIWFIT-->
-<!DOCTYPE html> 
+
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <link rel="stylesheet" href="C:\Users\sim.diienno1\git\siw-progetto-siwfit\siw-progettoSiwFit\src\main\resources\static\index.css">
+        <link rel="stylesheet" href="index.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>    
     <body>
         <header>
-            <h1>SIWfit</h1>
+           <img src="/logo.png">
         </header>
-        <p>Introduzione</p>
-        <div>
-            <a th:href="@{/user/homeuser}">login</a>
+        
+        <div id="login_wrapper">
+            <div id="image_wrapper">
+
+            </div>
+            <div id="form_wrapper">
+                <h1>Accedi al tuo account</h1>
+                <div id="form">
+                    <form>
+                        <div class="input_form"> 
+                            <span><input type="text" placeholder="username"/></span>
+                        </div>
+
+                        <div class="input_form"> 
+                            <span><input type="password" placeholder="password"/></span>
+                        </div>
+
+                        <div id="login_butt">
+                            <a th:href="@{/user/homeuser}">LOGIN</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
+
+       
     </body>
 </html>
