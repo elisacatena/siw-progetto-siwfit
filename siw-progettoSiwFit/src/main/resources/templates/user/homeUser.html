@@ -1,20 +1,37 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-	<header>
-		<button>
-			<a th:href="@{/user/categorie}">Categorie</a>
-		</button>
-	</header>
+	<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/css/homeUser.css">
+	</head>
+	<body>
+		<header>
+			<nav>
+				<div id="img_wrapper">
+					<img src="/logo.png">
+				</div>
+				<div id="container">
+					<a id="home" th:href="@{/user/homeUser}">Home</a>
+					<a th:href="@{/user/categorie}">Categorie</a>
+					<a th:href="@{/user/trainers}">Trainers</a>
+					<a th:href="@{'/user/corsi_prenotati' + '/' + 'u1'}">Corsi prenotati</a>	
+				</div>
+				
+			</nav>
+		</header>
 
-	<div>
-		<button>
-			<a th:href="@{'/user/corsi_prenotati' + '/' + 'u1'}">CORSI
-				PRENOTATI</a>
-		</button>
-	</div>
-</body>
+		<div id="main_content">
+			<div id="slogan">
+				<h1>
+					<div style="margin-left: 8%;"><span class="letter">S</span>tay </div>
+					<div style="margin-left: 9%;"><span class="letter">I</span>n </div>
+					<div><span class="letter">W</span>orkout</h1></div>
+			</div>
+		</div>
+
+		<footer>
+			info palestra
+		</footer>
+
+	</body>
 </html>
