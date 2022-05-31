@@ -31,14 +31,14 @@ public class CategoriaController {
 	public String getCategorie(Model model) {
 		List<Categoria> categorie = categoriaService.findAll();
 		model.addAttribute("categorie", categorie);
-		return "categorie.html";
+		return "user/categorie.html";
 	}
 
 	@GetMapping("/user/categoria/{id}")
 	public String getCategoria(@PathVariable("id")Long id, Model model) {
 		Categoria categoria = categoriaService.findById(id);
 		model.addAttribute("categoria", categoria);
-		return "categoria.html";
+		return "user/categoria.html";
 	}
 
 }

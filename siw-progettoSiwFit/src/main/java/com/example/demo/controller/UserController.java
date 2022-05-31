@@ -53,7 +53,7 @@ public class UserController {
 	public String getHomeUser(Model model) {
 		User user = this.userService.findByUsername("u1").get(0);
 		model.addAttribute("user",user);
-		return "homeUser.html";
+		return "user/homeUser.html";
 	}
 
 }

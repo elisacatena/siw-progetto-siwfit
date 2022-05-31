@@ -31,15 +31,6 @@ public class CorsoController {
 	@Autowired
 	private UserService userService;
 
-	// @GetMapping("/corsi")
-	// public String getCorsi(Model model) {
-	// List<Corso> corsi = corsoService.findAll();
-	// model.addAttribute("corsi", corsi);
-	// return "corsi.html";
-	// }
-
-
-
 	/* id è del corso.
 	 * Il metodo resituisce un corso tramite il suo id.
 	 */
@@ -49,9 +40,9 @@ public class CorsoController {
 		Corso corso = corsoService.findById(id);
 		model.addAttribute("corso", corso);
 		User user = this.userService.findByUsername("u1").get(0);
-		Boolean b = user.getCorsiPrenotati().contains(corso);
-		model.addAttribute("condition", b);
-		return "corso.html";
+		Boolean condition = (user.getCorsiPrenotati().contains(corso)) || (corso.getIscritti().size() >= corso.getNumeroMaxPersone());
+		model.addAttribute("condition", condition);
+		return "user/corso.html";
 	}
 
 	@GetMapping("/user/prenota/{id}") //id del corso
