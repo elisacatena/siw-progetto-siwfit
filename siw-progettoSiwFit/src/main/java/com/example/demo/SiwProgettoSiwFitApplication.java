@@ -39,6 +39,9 @@ public class SiwProgettoSiwFitApplication implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 
 		Trainer t = new Trainer();
+		t.setNome("simone");
+		t.setCognome("di ienno");
+		tr.save(t);
 		
 	 	Categoria c1 = new Categoria();
 		Categoria c2 = new Categoria();
@@ -46,12 +49,18 @@ public class SiwProgettoSiwFitApplication implements CommandLineRunner{
 		c1.setNome("cat1");
 		c2.setNome("cat2");
 		
-		
 		Corso co1 = new Corso();
 		Corso co2 = new Corso();
 		
 		co1.setNome("corso1");
 		co2.setNome("corso2");
+		co1.setNumeroMaxPersone(0);
+		co2.setNumeroMaxPersone(1);
+		
+		co1.setTrainer(t);
+		co2.setTrainer(t);
+		t.getCorsi().add(co1);
+		t.getCorsi().add(co2);
 		
 		co1.setData("2022");
 		co2.setData("2023");
@@ -61,6 +70,8 @@ public class SiwProgettoSiwFitApplication implements CommandLineRunner{
 		
 		co3.setNome("corso3");
 		co4.setNome("corso4");
+		co3.setNumeroMaxPersone(3);
+		co4.setNumeroMaxPersone(4);
 		
 		co3.setData("2022");
 		co4.setData("2023");
@@ -81,12 +92,7 @@ public class SiwProgettoSiwFitApplication implements CommandLineRunner{
 		
 		User u1 = new User();
 		u1.setUsername("u1");
-		u1.setCorsiPrenotati(corsi2);
 		
-		co3.getIscritti().add(u1);
-		co4.getIscritti().add(u1);
-		
-		tr.save(t);
 		ur.save(u1);
 		cor.save(co1);
 		cor.save(co2);
