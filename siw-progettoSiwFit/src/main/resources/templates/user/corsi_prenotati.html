@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<h4>Elenco corsi prenotati</h4>
+	<ul>
+	<li th:each="corso : ${user.corsiPrenotati}">
+		<a 
+			th:href="@{'/user/corso' + '/' + ${corso.id}}"
+			th:text="${corso.nome}">nome corso</a>
+	</li>
+	</ul>
+	<a th:href="@{/user/homeuser}">Home</a>
+</body>
+</html>
