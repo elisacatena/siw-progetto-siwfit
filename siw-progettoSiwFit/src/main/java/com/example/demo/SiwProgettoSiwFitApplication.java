@@ -80,10 +80,11 @@ public class SiwProgettoSiwFitApplication implements CommandLineRunner{
 		c2.setCorsi(corsi2);
 		
 		User u1 = new User();
-//		u1.setCorsiPrenotati(corsi2);
+		u1.setUsername("u1");
+		u1.setCorsiPrenotati(corsi2);
 		
-//		co3.getIscritti().add(u1);
-//		co4.getIscritti().add(u1);
+		co3.getIscritti().add(u1);
+		co4.getIscritti().add(u1);
 		
 		tr.save(t);
 		ur.save(u1);

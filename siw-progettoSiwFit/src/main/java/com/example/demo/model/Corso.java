@@ -1,10 +1,14 @@
 package com.example.demo.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -16,18 +20,12 @@ public class Corso {
 	
 	@Column(nullable = false)
 	private String nome;
-	
 	@Column(nullable = false)
 	private String data;
-	
 	private String difficolta;
-	
 	private String durata;
-	
 	private String descrizione;
-	
 	private String sala;
-	
 	private int numeroMaxPersone;
 	
 	@ManyToOne//(cascade = CascadeType.PERSIST)
@@ -36,7 +34,12 @@ public class Corso {
 	@ManyToOne
 	private Categoria categoria;
 	
+	@ManyToMany
+	private List<User> iscritti;
+	
+	
 	public Corso() {
+		this.iscritti = new ArrayList<User>();
 	}
 
 	public Corso(String nome, String data, String difficolta, String durata, String descrizione, String sala,
@@ -49,7 +52,7 @@ public class Corso {
 		this.sala = sala;
 		this.numeroMaxPersone = numeroMaxPersone;
 		this.trainer = trainer;
-		this.categoria = categoria;
+		//this.categoria = categoria;
 	}
 	
 	public Long getId() {
@@ -117,6 +120,14 @@ public class Corso {
 
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
+	}
+
+	public List<User> getIscritti() {
+		return iscritti;
+	}
+
+	public void setIscritti(List<User> iscritti) {
+		this.iscritti = iscritti;
 	}
 
 	@Override
