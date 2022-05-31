@@ -14,4 +14,6 @@ public interface UserRepository extends CrudRepository<User, Long> {
 	public List<Corso> findAllCorsiPrenotati(String username);
 
 	public boolean existsByUsername(String username);
+	
+	public List<User> findByUsername(String username);
 }

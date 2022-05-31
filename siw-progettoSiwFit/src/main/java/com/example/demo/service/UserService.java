@@ -21,7 +21,7 @@ public class UserService {
 	public void save(User user) {
 		this.userRepository.save(user);
 	}
-	
+
 	public User findById(Long id) {
 		return this.userRepository.findById(id).get();
 	}
@@ -29,9 +29,10 @@ public class UserService {
 	public boolean alreadyExists(User user) {
 		return this.userRepository.existsByUsername(user.getUsername());
 	}
-	
-	public List<Corso> findAllCorsiPrenotati(String username) {
-		return this.userRepository.findAllCorsiPrenotati(username);
+
+	public List<User> findByUsername(String username) {
+
+		return this.userRepository.findByUsername(username);
 	}
-	
+
 }

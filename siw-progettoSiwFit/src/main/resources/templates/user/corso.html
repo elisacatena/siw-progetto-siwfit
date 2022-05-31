@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+	<div>
+		<h4>Dettagli corso</h4>
+	</div>
+	<div>
+		<span th:text="${corso.nome}">nome corso</span>
+	</div>
+	<div>
+		<span th:text="${corso.descrizione}">descrizione corso</span>
+	</div>
+	<div>
+		<p th:if="${condition}">prenota</p>
+	</div>
+	<div>
+		<a th:unless="${condition}"
+			th:href="@{'/user/prenota' + '/' + ${corso.id}}" th:text="prenota"></a>
+	</div>
+	<footer>
+		<a href="/">Home</a>
+	</footer>
+</body>
+</html>
