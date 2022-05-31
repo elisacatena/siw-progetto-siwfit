@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.example.demo.model.Categoria;
-import com.example.demo.model.User;
+import com.example.demo.model.Corso;
 import com.example.demo.service.CategoriaService;
+import com.example.demo.service.CorsoService;
 import com.example.demo.service.UserService;
 import com.example.demo.validator.CategoriaValidator;
 
@@ -39,5 +40,15 @@ public class CategoriaController {
 		model.addAttribute("categoria", categoria);
 		return "categoria.html";
 	}
-
+	
+	/*ATTENZIONE, MODIFICARE CON I RELATIVI LOGIN*/
+	
+	@GetMapping("/user/homeuser")
+	public String getCategoria(Model model) {
+		List<Corso> prenotati = this.userService.findAllCorsiPrenotati("u1");
+		model.addAttribute("prenotati", prenotati);
+		return "homeUser.html";
+	}
+	
+	/*!!!!!!!!!!!!------------!!!!!!!*/
 }

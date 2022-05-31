@@ -1,14 +1,15 @@
 package com.example.demo.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name="Utente")
@@ -22,16 +23,22 @@ public class User {
 	
 	private String cognome;
 	
-	@ManyToMany
+	@Column(nullable = false)
+	@NotBlank
+	private String username;
+	
+	private String password;
+	
+	@ManyToMany(mappedBy = "iscritti")
 	private List<Corso> corsiPrenotati;
 	
-	public User() {
-		this.corsiPrenotati = new ArrayList<Corso>();
-	} 
+	public User() {} 
 	
-	public User(String nome, String cognome) {
+	public User(String nome, String cognome, String username, String password) {
 		this.nome = nome;
 		this.cognome = cognome;
+		this.username = username;
+		this.password = password;
 	}
 
 	public Long getId() {
@@ -58,6 +65,22 @@ public class User {
 		this.cognome = cognome;
 	}
 
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	public List<Corso> getCorsiPrenotati() {
 		return corsiPrenotati;
 	}
@@ -68,7 +91,7 @@ public class User {
 
 	@Override
 	public int hashCode() {
-		return this.getId().hashCode() + 31;
+		return this.getUsername().hashCode() + 31;
 	}
 
 	@Override
@@ -78,7 +101,7 @@ public class User {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		return this.getId().equals(other.getId());
+		return this.getUsername().equals(other.getUsername());
 	}
 	
 
