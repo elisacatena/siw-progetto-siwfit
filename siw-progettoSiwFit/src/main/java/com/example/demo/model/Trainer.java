@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -20,11 +21,13 @@ public class Trainer {
 	private String cognome;
 	private String descrizione;
 	
-	@OneToMany()
+	@OneToMany
 	@JoinColumn(name = "trainer_id")
 	private List<Corso> corsi;
 	
-	public Trainer() {}
+	public Trainer() {
+		this.corsi = new ArrayList<Corso>();
+	}
 	
 	public Trainer(String nome, String cognome, String descrizione, List<Corso> corsi) {
 		this.nome = nome;

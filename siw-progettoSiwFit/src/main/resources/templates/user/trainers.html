@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<h4>Elenco trainer</h4>
+	<ul>
+	<li th:each="trainer : ${trainers}">
+		<a href="trainer.html" 
+			th:href="@{'/user/trainer' + '/' + ${trainer.id}}"
+			th:text="${trainer.nome}+ ' ' +${trainer.cognome}">trainer</a>
+	</li>
+	</ul>
+</body>
+</html>
