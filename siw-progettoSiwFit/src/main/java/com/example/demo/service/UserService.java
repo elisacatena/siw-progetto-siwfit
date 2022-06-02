@@ -1,13 +1,10 @@
 package com.example.demo.service;
 
-import java.util.List;
-
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.model.Corso;
 import com.example.demo.model.User;
 import com.example.demo.repository.UserRepository;
 
@@ -27,12 +24,7 @@ public class UserService {
 	}
 
 	public boolean alreadyExists(User user) {
-		return this.userRepository.existsByUsername(user.getUsername());
-	}
-
-	public List<User> findByUsername(String username) {
-
-		return this.userRepository.findByUsername(username);
+		return this.userRepository.existsById(user.getId());
 	}
 
 }

@@ -34,11 +34,5 @@ public class CategoriaController {
 		return "user/categorie.html";
 	}
 
-	@GetMapping("/user/categoria/{id}")
-	public String getCategoria(@PathVariable("id")Long id, Model model) {
-		Categoria categoria = categoriaService.findById(id);
-		model.addAttribute("categoria", categoria);
-		return "user/categoria.html";
-	}
 
 }
