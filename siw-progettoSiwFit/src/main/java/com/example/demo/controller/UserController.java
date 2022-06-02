@@ -1,8 +1,5 @@
 package com.example.demo.controller;
 
-
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,12 +11,8 @@ import com.example.demo.service.CorsoService;
 import com.example.demo.service.UserService;
 import com.example.demo.validator.UserValidator;
 
-
-
 @Controller
 public class UserController {
-
-
 
 	@Autowired
 	private UserService userService;

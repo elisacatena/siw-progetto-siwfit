@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-	<meta charset="UTF-8"/>
+	<head>
+		<meta charset="UTF-8"/>
 	</head>
-<body>
-	<div>
-		<h4>Dettagli categoria</h4>
-	</div>
-	<div>
-		<span th:text="${categoria.nome}">nome categoria</span>
-   	</div>
-	<div>
-		<span th:text="${categoria.descrizione}">descrizione categoria</span>
-   	</div>
-	<div><ul>
-	<li th:each="corso : ${categoria.corsi}">
-		<a
-			th:href="@{'/user/corso' + '/' + ${corso.id}}"
-			th:text="${corso.nome}">corso1</a>
-	</li>
-	</ul></div>
-	<footer><a th:href="@{/user/homeuser}">Home</a></footer>
-</body>
+	<body>
+		<div>
+			<h4>Dettagli categoria</h4>
+		</div>
+		<div>
+			<span th:text="${categoria.nome}">nome categoria</span>
+	   	</div>
+		<div>
+			<span th:text="${categoria.descrizione}">descrizione categoria</span>
+	   	</div>
+		<div>
+			<ul>
+			<li th:each="corso : ${categoria.corsi}">
+				<a
+					th:href="@{'/user/corso' + '/' + ${corso.id}}"
+					th:text="${corso.nome}">corso1</a>
+			</li>
+			</ul>
+		</div>
+		<footer><a th:href="@{/user/homeuser}">Home</a></footer>
+	</body>
 </html>

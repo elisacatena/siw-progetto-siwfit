@@ -1,13 +1,47 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<body>
-	<h4>Elenco categorie</h4>
-	<ul>
-	<li th:each="categoria : ${categorie}">
-		<a href="categoria.html" 
-			th:href="@{'/user/categoria' + '/' + ${categoria.id}}"
-			th:text="${categoria.nome}">categoria1</a>
-	</li>
-	</ul>
-</body>
+
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/css/categorie.css">
+	</head>
+	
+	<body>
+	
+		<header>
+				<nav>
+					<div id="img_wrapper">
+						<img src="/logo.png">
+					</div>
+					<div id="container">
+						<a th:href="@{/user/homeuser}">Home</a>
+						<a id="categorie" th:href="@{/user/categorie}">Categorie</a>
+						<a th:href="@{/user/trainers}">Trainers</a>
+						<a th:href="@{'/user/corsi_prenotati' + '/' + 'u1'}">Corsi prenotati</a>	
+					</div>
+				</nav>
+			</header>
+			
+			
+		<h4>Elenco categorie</h4>
+		<ul>
+			<li th:each="categoria : ${categorie}">
+				<div id="nome_cat" th:text="${categoria.nome}">categoria1
+				</div>
+				<div id="corsi_wrapper">
+					<div id="corso" th:each="corso : ${categoria.corsi}">
+						<div id="dettagli_corso">
+							<a
+							th:href="@{'/user/corso' + '/' + ${corso.id}}"
+							th:text="${corso.nome}">corso1</a>
+						</div>
+						
+					</div>
+				</div>
+			</li>
+		</ul>
+		
+		
+		
+	</body>
 </html>
