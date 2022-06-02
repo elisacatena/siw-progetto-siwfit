@@ -65,3 +65,64 @@ h1 {
 footer {
     color: aliceblue;
 }
+
+#info_user {
+	padding-left: 10%;
+    padding-top: 2.5%;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  color:white;
+  background-image: url("/user.png");
+  height:60px;
+  width:60px;
+  border-radius:50%;
+  background-size: cover;
+  margin-left: 200px;
+  margin-top: 2%;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: -225%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+ content: " ";
+  position: absolute;
+  bottom: 100%;  /* At the top of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #555 transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+#logout {
+	margin-right:0;
+	color:white;
+}
+
+#logout:hover {
+	color:#ff5d66;
+}

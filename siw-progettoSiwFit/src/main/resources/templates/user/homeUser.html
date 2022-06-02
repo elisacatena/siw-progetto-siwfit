@@ -14,9 +14,19 @@
 					<a id="home" th:href="@{/user/homeuser}">Home</a>
 					<a th:href="@{/user/categorie}">Categorie</a>
 					<a th:href="@{/user/trainers}">Trainers</a>
-					<a th:href="@{'/user/corsi_prenotati' + '/' + 'u1'}">Corsi prenotati</a>	
+					<a th:href="@{/user/corsi_prenotati}">Corsi prenotati</a>
 				</div>
-				
+
+				<div class="tooltip">
+		  			<div class="tooltiptext">
+		  				<div>
+		  					<p th:text="${user.nome}"></p>
+		  					<p th:text="${user.cognome}"></p>
+		  					<p><a id="logout" th:href="@{/logout}">Logout</a></p>
+		  				</div>
+		  			</div>
+				</div>		
+
 			</nav>
 		</header>
 

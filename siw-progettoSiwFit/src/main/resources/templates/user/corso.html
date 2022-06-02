@@ -14,14 +14,22 @@
 		<span th:text="${corso.descrizione}">descrizione corso</span>
 	</div>
 	<div>
-		<p th:if="${condition}">prenota</p>
+		<p th:if="${prenotazione}">prenota</p>
 	</div>
 	<div>
-		<a th:unless="${condition}"
+		<a th:unless="${prenotazione}"
 			th:href="@{'/user/prenota' + '/' + ${corso.id}}" th:text="prenota"></a>
 	</div>
+	
+	<div>
+		<a th:if="${cancellazione}" th:href="@{'/user/delete_corsoPrenotato' + '/' + ${corso.id}}" th:text="'cancella'+' '+'prenotazione'">cancella prenotazione</a>
+	</div>
+	<div>
+		<p th:unless="${cancellazione}">cancella prenotazione</p>
+	</div>
+	
 	<footer>
-		<a href="/">Home</a>
+		<a th:href="@{/user/homeuser}">Home</a>
 	</footer>
 </body>
 </html>

@@ -14,23 +14,26 @@
             <div id="image_wrapper">
 
             </div>
+            
             <div id="form_wrapper">
                 <h1>Accedi al tuo account</h1>
                 <div id="form">
-                    <form>
+                    <form th:action="@{/login}" method="POST" >
                         <div class="input_form"> 
-                            <span><input type="text" placeholder="username"/></span>
+                            <span><input type="text" placeholder="username"  name="username" required/></span>
                         </div>
 
                         <div class="input_form"> 
-                            <span><input type="password" placeholder="password"/></span>
+                            <span><input type="password" placeholder="password" name="password" required/></span>
                         </div>
 
                         <div id="login_butt">
-                            <a th:href="@{/user/homeuser}">LOGIN</a>
+                            <button type="submit">LOGIN</button>
                         </div>
+                     
                     </form>
                 </div>
+                <a th:href="@{/register}">REGISTRATI</a>
             </div>
         </div>
 
