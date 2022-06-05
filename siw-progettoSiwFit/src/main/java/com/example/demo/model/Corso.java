@@ -20,12 +20,18 @@ public class Corso {
 	
 	@Column(nullable = false)
 	private String nome;
+	
 	@Column(nullable = false)
 	private String data;
+	
 	private String difficolta;
+	
 	private String durata;
+	
 	private String descrizione;
+	
 	private String sala;
+	
 	private int numeroMaxPersone;
 	
 	@ManyToOne//(cascade = CascadeType.PERSIST)
@@ -36,7 +42,6 @@ public class Corso {
 	
 	@ManyToMany
 	private List<User> iscritti;
-	
 	
 	public Corso() {
 		this.iscritti = new ArrayList<User>();

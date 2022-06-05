@@ -2,10 +2,8 @@ package com.example.demo.model;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,7 +19,6 @@ public class Categoria {
 	
 	@Column(nullable = false)
 	private String nome;
-	private String descrizione;
 	
 	@OneToMany//(cascade = {CascadeType.PERSIST,CascadeType.REMOVE},fetch = FetchType.EAGER)
 	@JoinColumn(name = "categoria_id")
@@ -29,13 +26,11 @@ public class Categoria {
 	
 	public Categoria() {}
 	
-	public Categoria(String nome, String descrizione, List<Corso> corsi) {
+	public Categoria(String nome, List<Corso> corsi) {
 		this.nome = nome;
-		this.descrizione = descrizione;
 		this.corsi = corsi;
 	}
 
-	
 	public Long getId() {
 		return id;
 	}
@@ -50,14 +45,6 @@ public class Categoria {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public String getDescrizione() {
-		return descrizione;
-	}
-
-	public void setDescrizione(String descrizione) {
-		this.descrizione = descrizione;
 	}
 
 	public List<Corso> getCorsi() {

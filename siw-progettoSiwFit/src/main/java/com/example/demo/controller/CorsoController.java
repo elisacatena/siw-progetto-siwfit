@@ -39,6 +39,7 @@ public class CorsoController {
 		model.addAttribute("corso", corso);
 		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     	User user = credenzialiService.getCredenziali(userDetails.getUsername()).getUser();
+    	model.addAttribute("user", user);
 		Boolean prenotazione = (user.getCorsiPrenotati().contains(corso)) || (corso.getIscritti().size() >= corso.getNumeroMaxPersone());
 		Boolean cancellazione = (user.getCorsiPrenotati().contains(corso));
 		model.addAttribute("prenotazione", prenotazione);
@@ -56,7 +57,12 @@ public class CorsoController {
 		corso.getIscritti().add(user);
 		this.corsoService.save(corso);
 		model.addAttribute("user",user);
-		return "/user/corsi_prenotati";
+		model.addAttribute("corso", corso);
+		Boolean prenotazione = (user.getCorsiPrenotati().contains(corso)) || (corso.getIscritti().size() >= corso.getNumeroMaxPersone());
+		Boolean cancellazione = (user.getCorsiPrenotati().contains(corso));
+		model.addAttribute("prenotazione", prenotazione);
+		model.addAttribute("cancellazione", cancellazione);
+		return "user/corso";
 	}
 
 	@GetMapping("/user/delete_corsoPrenotato/{id}")

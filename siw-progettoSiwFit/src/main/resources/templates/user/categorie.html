@@ -2,23 +2,35 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 	<head>
+		<title> Categorie </title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="/css/categorie.css">
 	</head>
 	
 	<body>
 	
-		<header>
+			<header>
 				<nav>
 					<div id="img_wrapper">
-						<img src="/logo.png">
+						<img src="/images/logo.png">
 					</div>
 					<div id="container">
-						<a th:href="@{/user/homeuser}">Home</a>
-						<a id="categorie" th:href="@{/user/categorie}">Categorie</a>
-						<a th:href="@{/user/trainers}">Trainers</a>
-						<a th:href="@{/user/corsi_prenotati}">Corsi prenotati</a>	
+						<a class="link_nav" th:href="@{/user/homeuser}">Home</a>
+						<a class="link_nav" id="categorie" th:href="@{/user/categorie}">Categorie</a>
+						<a class="link_nav" th:href="@{/user/trainers}">Trainers</a>
+						<a class="link_nav" th:href="@{/user/corsi_prenotati}">Corsi prenotati</a>	
 					</div>
+					
+					<div class="tooltip">
+		  			<div class="tooltiptext">
+		  				<div>
+		  					<p th:text="${user.nome}"></p>
+		  					<p th:text="${user.cognome}"></p>
+		  					<p><a class="link_nav" id="logout" th:href="@{/logout}">Logout</a></p>
+		  				</div>
+		  			</div>
+				</div>		
+				
 				</nav>
 			</header>
 			
@@ -31,9 +43,12 @@
 				<div id="corsi_wrapper">
 					<div id="corso" th:each="corso : ${categoria.corsi}">
 						<div id="dettagli_corso">
+							<p th:text="${corso.difficolta}">difficolta</p>
+							<p th:text="${corso.data}+' '+${corso.durata}">data</p>
+							<p th:text="${corso.nome}"></p>
 							<a
-							th:href="@{'/user/corso' + '/' + ${corso.id}}"
-							th:text="${corso.nome}">corso1</a>
+							th:href="@{'/user/corso' + '/' + ${corso.id}}"	>ALLENATI ORA</a>
+							
 						</div>
 						
 					</div>

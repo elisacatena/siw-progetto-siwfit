@@ -22,7 +22,7 @@ img {
     font-size: x-large;
 }
 
-a {
+.link_nav {
     text-decoration: none;
     color: aliceblue;
     margin-right: 30px;
@@ -33,46 +33,8 @@ a:hover {
     pointer-events: cursor;
 }
 
-#home {
+#trainers {
     color: #ff5d66;
-}
-
-#main_content {
-    background-image: url("/images/sfondo_home.jpg");
-    background-position: center ;
-    background-size: cover;
-    height: 500px;
-    text-align: center;
-    color: aliceblue;
-    margin-top: 2%;
-}
-
-.letter {
-    color: #ff5d66;
-}
-
-h1 {
-    margin: unset;
-    padding-top: 5%;
-    padding-right: 5%;
-    text-align: initial;
-    display: flex;
-    flex-direction: column;
-}
-
-#slogan {
-    text-align: end;
-    display: flex;
-    justify-content: flex-end;
-}
-
-footer {
-    color: aliceblue;
-}
-
-#info_user {
-	padding-left: 10%;
-    padding-top: 2.5%;
 }
 
 .tooltip {
@@ -122,6 +84,7 @@ footer {
   opacity: 1;
 }
 
+
 #logout {
 	margin-right:0;
 	color:white;
@@ -130,3 +93,48 @@ footer {
 #logout:hover {
 	color:#ff5d66;
 }
+
+a {
+	text-decoration:none;
+	color:white;
+}
+
+#trainers_wrapper {
+    display: flex;
+    height: fit-content;
+    flex-wrap: wrap;
+    margin-left: 2%;
+    margin-bottom: 5%;
+    border-radius: 6%;
+    margin-top: 2%;
+}
+
+#dettagli_wrapper{
+    background-color: pink;
+    margin-right: 3%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 6%;
+    width: 25%;
+    height: 400px;
+}
+
+#dettagli_trainer {
+    font-size: x-large;
+    margin: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+ul {
+	margin: 3%;
+	width: 100%;
+}
+
+
+
+
+
+
+
